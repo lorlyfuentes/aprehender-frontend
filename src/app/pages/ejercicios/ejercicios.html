@@ -3,7 +3,9 @@
 <section>
   @for (ejercicio of ejercicios(); track ejercicio._id) {
     <article>
-      <h2>{{ ejercicio.titulo }}</h2>
+      <h2>
+        <a [routerLink]="['/ejercicios', ejercicio._id]">{{ ejercicio.titulo }}</a>
+      </h2>
       <p>Nivel: {{ ejercicio.nivel }}</p>
       @if (ejercicio.esMuestra) {
         <p>Ejercicio de muestra</p>

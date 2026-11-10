@@ -26,4 +26,10 @@ export class EjerciciosService {
   listar() {
     return this.http.get<{ ejercicios: Ejercicio[] }>(this.url, { headers: this.encabezados() });
   }
+
+  obtener(id: string) {
+    return this.http.get<{ ejercicio: Ejercicio }>(`${this.url}/${id}`, {
+      headers: this.encabezados(),
+    });
+  }
 }
