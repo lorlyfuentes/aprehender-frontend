@@ -1,0 +1,19 @@
+<a routerLink="/ejercicios">Volver a la lista</a>
+
+@if (ejercicio(); as detalle) {
+  <h1>{{ detalle.titulo }}</h1>
+  <p>Nivel: {{ detalle.nivel }}</p>
+  <p>{{ detalle.consigna }}</p>
+
+  <ul>
+    @for (opcion of detalle.opciones; track opcion) {
+      <li>{{ opcion }}</li>
+    }
+  </ul>
+
+  @if (detalle.pista) {
+    <p>Pista: {{ detalle.pista }}</p>
+  }
+} @else {
+  <p>Cargando ejercicio...</p>
+}
