@@ -32,4 +32,10 @@ export class EjerciciosService {
       headers: this.encabezados(),
     });
   }
+
+  eliminar(id: string) {
+    return this.http.delete<{ mensaje: string }>(`${this.url}/${id}`, {
+      headers: this.encabezados(),
+    });
+  }
 }

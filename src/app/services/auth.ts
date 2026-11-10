@@ -30,6 +30,15 @@ export class Auth {
     return localStorage.getItem('token');
   }
 
+  obtenerRol() {
+    const token = this.obtenerToken();
+    if (!token) {
+      return null;
+    }
+    const datos = token.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+    return JSON.parse(atob(datos)).rol;
+  }
+
   cerrarSesion() {
     localStorage.removeItem('token');
   }
