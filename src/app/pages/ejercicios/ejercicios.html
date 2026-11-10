@@ -1,0 +1,15 @@
+<h1>Ejercicios</h1>
+
+<section>
+  @for (ejercicio of ejercicios(); track ejercicio._id) {
+    <article>
+      <h2>{{ ejercicio.titulo }}</h2>
+      <p>Nivel: {{ ejercicio.nivel }}</p>
+      @if (ejercicio.esMuestra) {
+        <p>Ejercicio de muestra</p>
+      }
+    </article>
+  } @empty {
+    <p>No hay ejercicios disponibles.</p>
+  }
+</section>
