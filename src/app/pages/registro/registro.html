@@ -1,0 +1,20 @@
+<h1>Crear cuenta</h1>
+
+<form (ngSubmit)="registrarse()">
+  <label for="nombre">Nombre</label>
+  <input id="nombre" type="text" name="nombre" [(ngModel)]="nombre" required />
+
+  <label for="correo">Correo</label>
+  <input id="correo" type="email" name="correo" [(ngModel)]="correo" required />
+
+  <label for="contrasena">Contraseña</label>
+  <input id="contrasena" type="password" name="contrasena" [(ngModel)]="contrasena" required minlength="8" />
+
+  <label for="rol">Soy</label>
+  <select id="rol" name="rol" [(ngModel)]="rol">
+    <option value="familia">Familia</option>
+    <option value="docente">Docente</option>
+  </select>
+
+  <button type="submit">Registrarme</button>
+</form>
