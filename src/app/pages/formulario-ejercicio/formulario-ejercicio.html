@@ -1,0 +1,38 @@
+<a routerLink="/ejercicios">Volver a la lista</a>
+
+<h1>{{ editando() ? 'Editar ejercicio' : 'Nuevo ejercicio' }}</h1>
+
+<form (ngSubmit)="guardar()">
+  <label for="titulo">Título</label>
+  <input id="titulo" type="text" name="titulo" [(ngModel)]="titulo" required />
+
+  <label for="nivel">Nivel</label>
+  <select id="nivel" name="nivel" [(ngModel)]="nivel">
+    <option value="Exploradores">Exploradores</option>
+    <option value="Aventureros">Aventureros</option>
+    <option value="Expertos">Expertos</option>
+  </select>
+
+  <label for="consigna">Consigna</label>
+  <input id="consigna" type="text" name="consigna" [(ngModel)]="consigna" required />
+
+  <label for="opciones">Opciones (separadas por comas)</label>
+  <input id="opciones" type="text" name="opciones" [(ngModel)]="opciones" required />
+
+  <label for="respuestaCorrecta">Respuesta correcta</label>
+  <input id="respuestaCorrecta" type="text" name="respuestaCorrecta" [(ngModel)]="respuestaCorrecta" required />
+
+  <label for="pista">Pista (opcional)</label>
+  <input id="pista" type="text" name="pista" [(ngModel)]="pista" />
+
+  <label>
+    <input type="checkbox" name="esMuestra" [(ngModel)]="esMuestra" />
+    Ejercicio de muestra
+  </label>
+
+  @if (error()) {
+    <p role="alert">{{ error() }}</p>
+  }
+
+  <button type="submit">Guardar</button>
+</form>

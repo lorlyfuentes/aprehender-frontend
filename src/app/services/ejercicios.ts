@@ -32,4 +32,22 @@ export class EjerciciosService {
       headers: this.encabezados(),
     });
   }
+
+  crear(datos: Omit<Ejercicio, '_id'>) {
+    return this.http.post<{ mensaje: string; ejercicio: Ejercicio }>(this.url, datos, {
+      headers: this.encabezados(),
+    });
+  }
+
+  actualizar(id: string, datos: Omit<Ejercicio, '_id'>) {
+    return this.http.put<{ mensaje: string; ejercicio: Ejercicio }>(`${this.url}/${id}`, datos, {
+      headers: this.encabezados(),
+    });
+  }
+
+  eliminar(id: string) {
+    return this.http.delete<{ mensaje: string }>(`${this.url}/${id}`, {
+      headers: this.encabezados(),
+    });
+  }
 }

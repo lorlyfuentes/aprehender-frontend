@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Ejercicio, EjerciciosService } from '../../services/ejercicios';
+import { Auth } from '../../services/auth';
 
 @Component({
   imports: [RouterLink],
@@ -11,6 +12,8 @@ import { Ejercicio, EjerciciosService } from '../../services/ejercicios';
 export class Ejercicios implements OnInit {
   ejercicios = signal<Ejercicio[]>([]);
   private ejerciciosService = inject(EjerciciosService);
+  private auth = inject(Auth);
+  esDocente = this.auth.obtenerRol() === 'docente';
 
   ngOnInit() {
     this.ejerciciosService.listar().subscribe({
@@ -20,3 +23,4 @@ export class Ejercicios implements OnInit {
     });
   }
 }
+

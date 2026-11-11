@@ -1,5 +1,9 @@
 <h1>Ejercicios</h1>
 
+@if (esDocente) {
+  <a routerLink="/ejercicios/nuevo">Nuevo ejercicio</a>
+}
+
 <section>
   @for (ejercicio of ejercicios(); track ejercicio._id) {
     <article>

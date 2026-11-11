@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Ejercicio, EjerciciosService } from '../../services/ejercicios';
+import { Auth } from '../../services/auth';
 
 @Component({
   imports: [RouterLink],
@@ -12,6 +13,9 @@ export class DetalleEjercicio implements OnInit {
   ejercicio = signal<Ejercicio | null>(null);
   private ruta = inject(ActivatedRoute);
   private ejerciciosService = inject(EjerciciosService);
+  private auth = inject(Auth);
+  private router = inject(Router);
+  esDocente = this.auth.obtenerRol() === 'docente';
 
   ngOnInit() {
     const id = this.ruta.snapshot.paramMap.get('id');
@@ -22,5 +26,16 @@ export class DetalleEjercicio implements OnInit {
         },
       });
     }
+  }
+
+  eliminar(id: string) {
+    if (!confirm('¿Eliminar este ejercicio? Esta acción no se puede deshacer.')) {
+      return;
+    }
+    this.ejerciciosService.eliminar(id).subscribe({
+      next: () => {
+        this.router.navigate(['/ejercicios']);
+      },
+    });
   }
 }
