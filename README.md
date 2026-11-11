@@ -1,59 +1,45 @@
-# AprehenderFrontend
+# ¡¡Seguimos Aprehendiendo!! — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.0.
+Aplicación web en Angular para trabajar ejercicios de lectoescritura (dislexia y disgrafia) con estudiantes de Transición a 5°. Proyecto final del bootcamp Desarrollo Web Full Stack (Instituto BIT y Universidad Iberoamericana).
 
-## Development server
+Este repositorio contiene el frontend. El backend (Node.js, Express y MongoDB) está en el repositorio [aprehender-backend](https://github.com/lorlyfuentes/aprehender-backend).
 
-To start a local development server, run:
+## Funcionalidades
 
-```bash
-ng serve
-```
+- Registro con rol `docente` o `familia`.
+- Inicio de sesión con JWT. El token se guarda en `localStorage` y se envía como `Authorization: Bearer <token>`.
+- Lista de ejercicios en cards y detalle de cada ejercicio.
+- La familia sin pago solo ve los ejercicios de muestra (el filtro lo aplica el backend).
+- CRUD de ejercicios para el docente: crear, editar y eliminar. Los errores de validación del backend se muestran en pantalla.
+- Diseño adaptable: las cards pasan de varias columnas a una sola en celular.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Tecnologías
 
-## Code scaffolding
+Angular 22 (componentes standalone, signals, `FormsModule` con `ngModel`, `Router` y `HttpClient`), TypeScript y CSS (Flexbox y Grid).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Cómo ejecutarlo
 
-```bash
-ng generate component component-name
-```
+Requisitos: Node.js, Angular CLI y el backend corriendo en `http://localhost:3000`.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1. Instalar las dependencias: `npm install`
+2. Iniciar la aplicación: `ng serve`
+3. Abrir `http://localhost:4200`
 
-```bash
-ng generate --help
-```
+## Estructura
 
-## Building
+- `src/app/services/auth.ts`: registro, login y manejo del token.
+- `src/app/services/ejercicios.ts`: CRUD de ejercicios contra `/api/ejercicios`.
+- `src/app/pages/`: pantallas `login`, `registro`, `ejercicios`, `detalle-ejercicio` y `formulario-ejercicio`.
+- `src/app/app.routes.ts`: rutas de la aplicación.
+- `src/styles.css`: estilos generales.
 
-To build the project run:
+## Rutas
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+| Ruta | Pantalla |
+|---|---|
+| `/login` | Inicio de sesión |
+| `/registro` | Registro |
+| `/ejercicios` | Lista de ejercicios |
+| `/ejercicios/nuevo` | Crear ejercicio (docente) |
+| `/ejercicios/:id` | Detalle de un ejercicio |
+| `/ejercicios/:id/editar` | Editar ejercicio (docente) |
