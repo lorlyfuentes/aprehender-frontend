@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Auth } from '../../services/auth';
 
 @Component({
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink],
   selector: 'app-registro',
   styleUrl: './registro.css',
   templateUrl: './registro.html',
