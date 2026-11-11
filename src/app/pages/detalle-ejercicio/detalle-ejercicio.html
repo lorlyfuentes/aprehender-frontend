@@ -16,6 +16,7 @@
   }
 
   @if (esDocente) {
+    <a [routerLink]="['/ejercicios', detalle._id, 'editar']">Editar</a>
     <button type="button" (click)="eliminar(detalle._id)">Eliminar</button>
   }
 } @else {
