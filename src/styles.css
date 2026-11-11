@@ -1,1 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Baloo+2:wght@600;800&display=swap');
+
+:root {
+  --tinta: #1f2a44;
+  --crema: #fff9ec;
+  --crema-fuerte: #fff1b8;
+  --sol: #ffd23f;
+  --uva: #5b3fe0;
+  --blanco: #ffffff;
+  --error: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--crema);
+  color: var(--tinta);
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+app-root {
+  display: block;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-family: 'Baloo 2', sans-serif;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--uva);
+  font-weight: 700;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 3px solid var(--tinta);
+  border-radius: 8px;
+  background: var(--blanco);
+  font: inherit;
+}
+
+button {
+  padding: 10px 16px;
+  border: 3px solid var(--tinta);
+  border-radius: 12px;
+  background: var(--sol);
+  color: var(--tinta);
+  font: inherit;
+  font-weight: 700;
+  box-shadow: 4px 4px 0 var(--tinta);
+  cursor: pointer;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--uva);
+  outline-offset: 2px;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+article {
+  padding: 16px;
+  border: 4px solid var(--tinta);
+  border-radius: 16px;
+  background: var(--crema-fuerte);
+  box-shadow: 6px 6px 0 var(--tinta);
+}
+
+[role='alert'] {
+  color: var(--error);
+  font-weight: 700;
+}
