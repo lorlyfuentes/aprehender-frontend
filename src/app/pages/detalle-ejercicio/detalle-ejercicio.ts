@@ -16,6 +16,8 @@ export class DetalleEjercicio implements OnInit {
   private auth = inject(Auth);
   private router = inject(Router);
   esDocente = this.auth.obtenerRol() === 'docente';
+  elegida = signal('');
+  mensaje = signal('Lee con calma y elige tu respuesta.');
 
   ngOnInit() {
     const id = this.ruta.snapshot.paramMap.get('id');
@@ -37,5 +39,10 @@ export class DetalleEjercicio implements OnInit {
         this.router.navigate(['/ejercicios']);
       },
     });
+  }
+
+  elegir(opcion: string, correcta: string) {
+    this.elegida.set(opcion);
+    this.mensaje.set(opcion === correcta ? '¡Muy bien!' : 'Casi... ¡vuelve a intentarlo!');
   }
 }

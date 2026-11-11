@@ -255,3 +255,7 @@ article h2 a:hover {
   margin: 0;
 }
 
+form + p {
+  margin-top: 20px;
+  font-weight: 700;
+}
