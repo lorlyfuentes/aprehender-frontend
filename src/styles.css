@@ -1,1 +1,261 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Baloo+2:wght@500;700;800&display=swap');
+
+:root {
+  --tinta: #1f2a44;
+  --crema: #fff9ec;
+  --sol: #ffd23f;
+  --uva: #5b3fe0;
+  --menta: #25c2a0;
+  --coral: #ff6b6b;
+  --blanco: #ffffff;
+  --error: #b42318;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 22px 16px 60px;
+  min-height: 100vh;
+  color: var(--tinta);
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  background: linear-gradient(#8fd8ff 0%, #d7f2ff 55%, #fff4d6 100%);
+  background-attachment: fixed;
+}
+
+app-root {
+  display: block;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+h1,
+h2 {
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  line-height: 1.1;
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-size: clamp(30px, 6vw, 44px);
+  text-shadow: 0 3px 0 var(--blanco);
+}
+
+a {
+  color: var(--uva);
+  font-weight: 700;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 4px solid var(--uva);
+  outline-offset: 3px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 560px;
+  padding: 24px 20px;
+  background: var(--blanco);
+  border: 4px solid var(--tinta);
+  border-radius: 28px;
+  box-shadow: 0 8px 0 var(--tinta);
+}
+
+form label {
+  margin-top: 8px;
+  font-weight: 700;
+}
+
+input,
+select {
+  padding: 12px;
+  border: 3px solid var(--tinta);
+  border-radius: 14px;
+  background: var(--crema);
+  color: var(--tinta);
+  font: inherit;
+  font-size: 18px;
+}
+
+input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+button {
+  padding: 10px 24px;
+  border: 4px solid var(--tinta);
+  border-radius: 100px;
+  background: var(--sol);
+  color: var(--tinta);
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  box-shadow: 0 6px 0 var(--tinta);
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 var(--tinta);
+}
+
+form button {
+  align-self: flex-start;
+  margin-top: 14px;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+article {
+  padding: 18px;
+  background: var(--blanco);
+  border: 4px solid var(--tinta);
+  border-radius: 24px;
+  box-shadow: 0 6px 0 var(--tinta);
+}
+
+article h2 {
+  font-size: 24px;
+}
+
+article h2 a {
+  color: var(--tinta);
+  text-decoration: none;
+}
+
+article h2 a:hover {
+  color: var(--uva);
+  text-decoration: underline;
+}
+
+[role='alert'] {
+  color: var(--error);
+  font-weight: 700;
+}
+
+.opciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.opcion {
+  min-height: 90px;
+  border-radius: 22px;
+  background: var(--crema);
+  font-size: clamp(22px, 5vw, 30px);
+  letter-spacing: 0.06em;
+}
+
+.opcion.correcta {
+  background: var(--menta);
+}
+
+.opcion.incorrecta {
+  background: var(--coral);
+}
+
+.mascota {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.nicoo {
+  width: 96px;
+  flex-shrink: 0;
+}
+
+.bocadillo {
+  padding: 12px 18px;
+  background: var(--blanco);
+  border: 4px solid var(--tinta);
+  border-radius: 24px 24px 24px 4px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button:active {
+    transform: none;
+  }
+}
+
+
+.boton {
+  display: inline-block;
+  margin: 0 0 20px;
+  padding: 8px 20px;
+  border: 4px solid var(--tinta);
+  border-radius: 100px;
+  background: var(--blanco);
+  color: var(--tinta);
+  font-family: 'Baloo 2', system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 6px 0 var(--tinta);
+}
+
+.boton:active {
+  transform: translateY(6px);
+  box-shadow: 0 0 0 var(--tinta);
+}
+
+.boton-uva {
+  background: var(--uva);
+  color: var(--blanco);
+}
+
+.peligro {
+  background: var(--coral);
+}
+
+.caja {
+  margin-top: 8px;
+  padding: 24px 22px;
+  background: var(--blanco);
+  border: 4px solid var(--tinta);
+  border-radius: 28px;
+  box-shadow: 0 8px 0 var(--tinta);
+}
+
+.caja p,
+.caja ul {
+  margin: 0 0 14px;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.acciones .boton {
+  margin: 0;
+}
+
+form + p {
+  margin-top: 20px;
+  font-weight: 700;
+}
